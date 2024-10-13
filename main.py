@@ -27,15 +27,12 @@ sort_output = {}
 for slowo, wystapienia in output.items():
     indeksy_zdan = [i for i in range(len(wystapienia)) if wystapienia[i] > 0]
 
-    for i in range(len(indeksy_zdan)):
-        for j in range(i + 1, len(indeksy_zdan)):
-            if wystapienia[indeksy_zdan[i]] < wystapienia[indeksy_zdan[j]]:
-                indeksy_zdan[i], indeksy_zdan[j] = indeksy_zdan[j], indeksy_zdan[i]
+    indeksy_zdan.sort(key=lambda i: (-wystapienia[i], i))
 
     sort_output[slowo] = indeksy_zdan
 
-for i in sort_output.values():
-    print(i)
+for indeksy in sort_output.values():
+        print(indeksy)
 
 #Przykład otrzymania wartości wprowadzonej przy użyciu funkcji input().
 
